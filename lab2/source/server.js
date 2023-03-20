@@ -8,8 +8,9 @@ app.get('/', (req, res) => {
     let imgQuery = req.query.imgFile;
 
     let htmlHead = `<!DOCTYPE html>
-    <html lang="en">
+    <html lang="pl">
     <head>
+    <meta charset="UTF-8">
     <script>
         function cancelVideo(){
             document.getElementById("videoPlayer").setAttribute("src", "cancel.mp4");
