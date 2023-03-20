@@ -18,16 +18,16 @@ app.get('/', (req, res) => {
         function cancelAudio(){
             document.getElementById("audioPlayer").setAttribute("src", "cancel.mp3");
         }
-        
+
     </script>
     </head>`
 
-    let videoCancelButton = ` <button type="button" id="videoCancel" onclick="cancelVideo()"> Cancel Video </button> `;
-    let audioCancelButton = ` <button type="button" id="audioCancel" onclick="cancelAudio()"> Cancel Audio </button> `;
-    let imgString = ` <img id="posterImage" src="${imgQuery}" /> `;
+    let videoCancelButton = ` <button type="button" id="videoCancel" onclick="cancelVideo()"> Cancel Video </button> </br>`;
+    let audioCancelButton = ` <button type="button" id="audioCancel" onclick="cancelAudio()"> Cancel Audio </button> </br>`;
+    let imgString = ` <img id="posterImage" src="${imgQuery}" /> </br> `;
     let outputString = 
-        ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery}></video>
-        <audio id="audioPlayer" controls src=${audioQuery}></audio> `
+        ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery}></video> </br>
+        <audio id="audioPlayer" controls src=${audioQuery}></audio> </br>`
 
     if(imgQuery){
         outputString += imgString;
