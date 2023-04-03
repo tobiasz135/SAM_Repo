@@ -32,13 +32,12 @@ app.get('/', (req, res) => {
 
     let imgString = ` <img id="posterImage" src="${imgQuery}" /> </br> `;
     let outputString = 
-        ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery}></video> </br>
-        <audio id="audioPlayer" controls src=${audioQuery}></audio> </br>`
+        ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery}></video> ${videoAddButton}</br>
+        <audio id="audioPlayer" controls src=${audioQuery}></audio> ${audioAddButton} </br>`
 
     if(imgQuery){
         outputString += imgString;
     }
-    let cancelButtonVisible = document.getElementById("videoCancel").style.visibility;
 
     outputString += videoCancelButton + audioCancelButton;
     res.send(htmlHead + outputString + ' </html> ');
