@@ -12,6 +12,8 @@ app.get('/', (req, res) => {
     <head>
     <meta charset="UTF-8">
     <script>
+        let columnIndex = 1;
+
         function cancelVideo(){
             document.getElementById("videoPlayer").setAttribute("src", "cancel.mp4");
         }
@@ -19,6 +21,19 @@ app.get('/', (req, res) => {
         function cancelAudio(){
             document.getElementById("audioPlayer").setAttribute("src", "cancel.mp3");
         }
+
+        function addVideo(){
+            let table = document.getElementById("playlist_table");
+            let row = table.insertRow(columnIndex);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            cell1.innerHTML = columnIndex;
+            cell2.innerHTML = document.getElementById("videoPlayer").getAttribute("src");
+            cell3.innerHTML = "video";
+            columnIndex++;
+        }
+
 
         window.onload = function(){
             let videoCancelBtnVisible = document.getElementById("videoCancel").style.visibility;
@@ -51,7 +66,7 @@ app.get('/', (req, res) => {
         outputString += imgString;
     }
 
-    let table = ` <table id="playlist_table>
+    let table = ` <table id="playlist_table">
         <tr>
             <th>No.</th>
             <th>URL</th>
@@ -60,6 +75,7 @@ app.get('/', (req, res) => {
         </table> `
 
     outputString += videoCancelButton + audioCancelButton;
+    outputString += table;
     res.send(htmlHead + outputString + ' </html> ');
 })
 
