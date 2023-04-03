@@ -20,15 +20,27 @@ app.get('/', (req, res) => {
             document.getElementById("audioPlayer").setAttribute("src", "cancel.mp3");
         }
 
+        window.onload = function(){
+            let videoCancelBtnVisible = document.getElementById("videoCancel").style.visibility;
+            let audioCancelBtnVisible = document.getElementById("audioCancel").style.visibility;
+            if(videoCancelBtnVisible === "visible" || videoCancelBtnVisible === ""){
+                document.getElementById("videoAdd").style.visibility = "visible";
+            }
+
+            if(audioCancelBtnVisible === "visible" || audioCancelBtnVisible === ""){
+                document.getElementById("audioAdd").style.visibility = "visible";
+            }
+        }
+
     </script>
     </head>`
 
     let videoCancelButton = ` <button type="button" id="videoCancel" onclick="cancelVideo()"> Cancel Video </button> </br>`;
     let audioCancelButton = ` <button type="button" id="audioCancel" onclick="cancelAudio()"> Cancel Audio </button> </br>`;
     
-    let audioAddButton = ` <button type="button" id="audioAdd" onclick="addAudio()"> Add Audio </button> </br>`;
-    let videoAddButton = ` <button type="button" id="videoAdd" onclick="addVideo()"> Add Video </button> </br>`;
-    let imageAddButton = ` <button type="button" id="imageAdd" onclick="addImage()"> Add Image </button> </br>`;
+    let audioAddButton = ` <button type="button" id="audioAdd" onclick="addAudio()" style="visibility:hidden;"> Add Audio </button> </br>`;
+    let videoAddButton = ` <button type="button" id="videoAdd" onclick="addVideo()" style="visibility:hidden;"> Add Video </button> </br>`;
+    let imageAddButton = ` <button type="button" id="imageAdd" onclick="addImage()" style="visibility:hidden;"> Add Image </button> </br>`;
 
     let imgString = ` <img id="posterImage" src="${imgQuery}" /> </br> `;
     let outputString = 
