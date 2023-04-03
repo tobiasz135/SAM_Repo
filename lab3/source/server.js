@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
             cell1.innerHTML = columnIndex;
-            cell2.innerHTML = document.getElementById("videoPlayer").getAttribute("src");
+            cell2.innerHTML = document.getElementById("videoPlayer").src;
             cell3.innerHTML = "video";
             columnIndex++;
         }
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
             cell1.innerHTML = columnIndex;
-            cell2.innerHTML = document.getElementById("audioPlayer").getAttribute("src");
+            cell2.innerHTML = document.getElementById("audioPlayer").src;
             cell3.innerHTML = "audio";
             columnIndex++;
         }
@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
             cell1.innerHTML = columnIndex;
-            cell2.innerHTML = document.getElementById("posterImage").getAttribute("src");
+            cell2.innerHTML = document.getElementById("posterImage").src;
             cell3.innerHTML = "image";
             columnIndex++;
         }
