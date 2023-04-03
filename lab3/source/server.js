@@ -51,6 +51,14 @@ app.get('/', (req, res) => {
         outputString += imgString;
     }
 
+    let table = ` <table id="playlist_table>
+        <tr>
+            <th>No.</th>
+            <th>URL</th>
+            <th>Type</th>
+        </tr>
+        </table> `
+
     outputString += videoCancelButton + audioCancelButton;
     res.send(htmlHead + outputString + ' </html> ');
 })
