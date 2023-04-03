@@ -34,6 +34,30 @@ app.get('/', (req, res) => {
             columnIndex++;
         }
 
+        function addAudio(){
+            let table = document.getElementById("playlist_table");
+            let row = table.insertRow(columnIndex);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            cell1.innerHTML = columnIndex;
+            cell2.innerHTML = document.getElementById("audioPlayer").getAttribute("src");
+            cell3.innerHTML = "audio";
+            columnIndex++;
+        }
+
+        function addImage(){
+            let table = document.getElementById("playlist_table");
+            let row = table.insertRow(columnIndex);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            cell1.innerHTML = columnIndex;
+            cell2.innerHTML = document.getElementById("posterImage").getAttribute("src");
+            cell3.innerHTML = "image";
+            columnIndex++;
+        }
+
 
         window.onload = function(){
             let videoCancelBtnVisible = document.getElementById("videoCancel").style.visibility;
