@@ -38,6 +38,7 @@ app.get('/', (req, res) => {
     if(imgQuery){
         outputString += imgString;
     }
+    let cancelButtonVisible = document.getElementById("videoCancel").style.visibility;
 
     outputString += videoCancelButton + audioCancelButton;
     res.send(htmlHead + outputString + ' </html> ');
