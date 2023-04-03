@@ -87,7 +87,7 @@ app.get('/', (req, res) => {
         <audio id="audioPlayer" controls src=${audioQuery}></audio> ${audioAddButton} </br>`
 
     if(imgQuery){
-        outputString += imgString;
+        outputString += imgString + imageAddButton;
     }
 
     let table = ` <table id="playlist_table">
