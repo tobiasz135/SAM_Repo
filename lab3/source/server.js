@@ -25,6 +25,11 @@ app.get('/', (req, res) => {
 
     let videoCancelButton = ` <button type="button" id="videoCancel" onclick="cancelVideo()"> Cancel Video </button> </br>`;
     let audioCancelButton = ` <button type="button" id="audioCancel" onclick="cancelAudio()"> Cancel Audio </button> </br>`;
+    
+    let audioAddButton = ` <button type="button" id="audioAdd" onclick="addAudio()"> Add Audio </button> </br>`;
+    let videoAddButton = ` <button type="button" id="videoAdd" onclick="addVideo()"> Add Video </button> </br>`;
+    let imageAddButton = ` <button type="button" id="imageAdd" onclick="addImage()"> Add Image </button> </br>`;
+
     let imgString = ` <img id="posterImage" src="${imgQuery}" /> </br> `;
     let outputString = 
         ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery}></video> </br>
