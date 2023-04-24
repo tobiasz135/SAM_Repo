@@ -101,7 +101,7 @@ app.get('/', (req, res) => {
     
     let audioAddButton = ` <button type="button" id="audioAdd" onclick="addAudio()" style="visibility:hidden;"> Add Audio </button> </br>`;
     let videoAddButton = ` <button type="button" id="videoAdd" onclick="addVideo()" style="visibility:hidden;"> Add Video </button> </br>`;
-    let imageAddButton = ` <button type="button" id="imageAdd" onclick="addImage()" style="visibility:hidden;"> Add Image </button> </br>`;
+    let imageAddButton = ` <button type="button" id="imgAdd" onclick="addImage()" style="visibility:hidden;"> Add Image </button> </br>`;
 
     let imgString = ` <img id="posterImage" src="${imgQuery}" /> </br> `;
     let outputString = 
