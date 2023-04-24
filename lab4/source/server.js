@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
     <html lang="pl">
     <head>
     <meta charset="UTF-8">
+    <title>Lab 4</title>
     <script>
         let columnIndex = 1;
 
