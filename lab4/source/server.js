@@ -28,9 +28,11 @@ app.get('/', (req, res) => {
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
             cell1.innerHTML = columnIndex;
             cell2.innerHTML = document.getElementById("videoPlayer").getAttribute("src");
             cell3.innerHTML = "Video";
+            cell4.innerHTML = "<button type='button' onclick='deleteRow(this)'>Delete</button>";
             columnIndex++;
         }
 
@@ -40,9 +42,11 @@ app.get('/', (req, res) => {
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
             cell1.innerHTML = columnIndex;
             cell2.innerHTML = document.getElementById("audioPlayer").getAttribute("src");
             cell3.innerHTML = "Audio";
+            cell4.innerHTML = "<button type='button' onclick='deleteRow(this)'>Delete</button>";
             columnIndex++;
         }
 
@@ -52,9 +56,11 @@ app.get('/', (req, res) => {
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
             cell1.innerHTML = columnIndex;
             cell2.innerHTML = document.getElementById("posterImage").getAttribute("src");
             cell3.innerHTML = "Image";
+            cell4.innerHTML = "<button type='button' onclick='deleteRow(this)'>Delete</button>";
             columnIndex++;
         }
 
@@ -95,6 +101,7 @@ app.get('/', (req, res) => {
             <th>No.</th>
             <th>URL</th>
             <th>Type</th>
+            <th>Action</th>
         </tr>
         </table> `
 
