@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
             cell1.innerHTML = columnIndex;
             cell2.innerHTML = document.getElementById("videoPlayer").getAttribute("src");
             cell3.innerHTML = "Video";
-            cell4.innerHTML = "<button type='button' onclick='deleteRow(this)'>Delete</button>";
+            cell4.innerHTML = "<button class='removeRowButton' type='button' onclick='deleteRow(this)'>Delete</button>";
             columnIndex++;
         }
 
@@ -61,7 +61,7 @@ app.get('/', (req, res) => {
             cell1.innerHTML = columnIndex;
             cell2.innerHTML = document.getElementById("audioPlayer").getAttribute("src");
             cell3.innerHTML = "Audio";
-            cell4.innerHTML = "<button type='button' onclick='deleteRow(this)'>Delete</button>";
+            cell4.innerHTML = "<button class='removeRowButton' type='button' onclick='deleteRow(this)'>Delete</button>";
             columnIndex++;
         }
 
@@ -75,7 +75,7 @@ app.get('/', (req, res) => {
             cell1.innerHTML = columnIndex;
             cell2.innerHTML = document.getElementById("posterImage").getAttribute("src");
             cell3.innerHTML = "Image";
-            cell4.innerHTML = "<button type='button' onclick='deleteRow(this)'>Delete</button>";
+            cell4.innerHTML = "<button class='removeRowButton' type='button' onclick='deleteRow(this)'>Delete</button>";
             columnIndex++;
         }
 
