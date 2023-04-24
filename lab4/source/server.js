@@ -22,6 +22,12 @@ app.get('/', (req, res) => {
             document.getElementById("audioPlayer").setAttribute("src", "cancel.mp3");
         }
 
+        function deleteRow(r) {
+            let i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("playlist_table").deleteRow(i);
+            columnIndex--;
+        }
+
         function addVideo(){
             let table = document.getElementById("playlist_table");
             let row = table.insertRow(columnIndex);
