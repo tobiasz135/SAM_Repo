@@ -22,10 +22,19 @@ app.get('/', (req, res) => {
             document.getElementById("audioPlayer").setAttribute("src", "cancel.mp3");
         }
 
+        recalculateIndex = function(){
+            let table = document.getElementById("playlist_table");
+            let rows = table.rows;
+            for(let i = 1; i < rows.length; i++){
+                rows[i].cells[0].innerHTML = i;
+            }
+        }
+
         function deleteRow(r) {
             let i = r.parentNode.parentNode.rowIndex;
             document.getElementById("playlist_table").deleteRow(i);
             columnIndex--;
+            recalculateIndex();
         }
 
         function addVideo(){
