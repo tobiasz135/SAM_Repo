@@ -65,6 +65,9 @@ app.get('/', (req, res) => {
         }
 
         function addVideo(){
+            if(!document.getElementById("videoPlayer")){
+                return;
+            }
             let table = document.getElementById("playlist_table");
             let row = table.insertRow(columnIndex);
             let cell1 = row.insertCell(0);
@@ -81,6 +84,9 @@ app.get('/', (req, res) => {
         }
 
         function addAudio(){
+            if(!document.getElementById("audioPlayer")){
+                return;
+            }
             let table = document.getElementById("playlist_table");
             let row = table.insertRow(columnIndex);
             let cell1 = row.insertCell(0);
@@ -97,6 +103,9 @@ app.get('/', (req, res) => {
         }
 
         function addImage(){
+            if(!document.getElementById("posterImage")){
+                return;
+            }
             let table = document.getElementById("playlist_table");
             let row = table.insertRow(columnIndex);
             let cell1 = row.insertCell(0);
@@ -136,9 +145,15 @@ app.get('/', (req, res) => {
     let imageAddButton = ` <button type="button" id="imgAdd" onclick="addImage()" style="visibility:hidden;"> Add Image </button> </br>`;
 
     let imgString = ` <img id="posterImage" src="${imgQuery}" /> </br> `;
-    let outputString = 
-        ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery} ${videoQuery ? "" : "hidden"}></video> ${videoAddButton}</br>
-        <audio id="audioPlayer" controls src=${audioQuery} ${audioQuery ? "" : "hidden"}></audio> ${audioAddButton} </br>`
+    
+    let outputString = "";
+    if(videoQuery){
+        outputString += ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery} ${videoQuery ? "" : "hidden"}></video> </br> `
+    }
+    if(audioQuery){
+        outputString += ` <audio id="audioPlayer" controls src=${audioQuery} ${audioQuery ? "" : "hidden"}></audio> </br> `
+    }
+    outputString += ` ${videoAddButton} ${audioAddButton}`
 
     if(imgQuery){
         outputString += imgString + imageAddButton;
