@@ -31,6 +31,12 @@ app.get('/', (req, res) => {
                 table.deleteRow(i);
                 table.insertRow(i - 1).outerHTML = row.outerHTML;
                 recalculateIndex();
+            } else {
+                let table = document.getElementById("playlist_table");
+                let row = table.rows[i];
+                table.deleteRow(i);
+                table.insertRow(table.rows.length).outerHTML = row.outerHTML;
+                recalculateIndex();
             }
         }
 
@@ -41,6 +47,11 @@ app.get('/', (req, res) => {
                 let row = table.rows[i];
                 table.deleteRow(i);
                 table.insertRow(i + 1).outerHTML = row.outerHTML;
+                recalculateIndex();
+            } else {
+                let row = table.rows[i];
+                table.deleteRow(i);
+                table.insertRow(1).outerHTML = row.outerHTML;
                 recalculateIndex();
             }
         }
