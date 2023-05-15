@@ -25,35 +25,28 @@ app.get('/', (req, res) => {
 
         function moveRowUp(r){
             let i = r.parentNode.parentNode.rowIndex;
+            let table = document.getElementById("playlist_table");
+            let row = table.rows[i];
+            table.deleteRow(i);
             if(i > 1){
-                let table = document.getElementById("playlist_table");
-                let row = table.rows[i];
-                table.deleteRow(i);
                 table.insertRow(i - 1).outerHTML = row.outerHTML;
-                recalculateIndex();
             } else {
-                let table = document.getElementById("playlist_table");
-                let row = table.rows[i];
-                table.deleteRow(i);
                 table.insertRow(table.rows.length).outerHTML = row.outerHTML;
-                recalculateIndex();
             }
+            recalculateIndex();
         }
 
         function moveRowDown(r){
             let i = r.parentNode.parentNode.rowIndex;
             let table = document.getElementById("playlist_table");
-            if(i < table.rows.length - 1){
-                let row = table.rows[i];
-                table.deleteRow(i);
+            let row = table.rows[i];
+            table.deleteRow(i);
+            if(i < table.rows.length){
                 table.insertRow(i + 1).outerHTML = row.outerHTML;
-                recalculateIndex();
             } else {
-                let row = table.rows[i];
-                table.deleteRow(i);
                 table.insertRow(1).outerHTML = row.outerHTML;
-                recalculateIndex();
             }
+            recalculateIndex();
         }
 
         recalculateIndex = function(){
