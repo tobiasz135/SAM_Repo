@@ -23,6 +23,28 @@ app.get('/', (req, res) => {
             document.getElementById("audioPlayer").setAttribute("src", "cancel.mp3");
         }
 
+        function moveRowUp(r){
+            let i = r.parentNode.parentNode.rowIndex;
+            if(i > 1){
+                let table = document.getElementById("playlist_table");
+                let row = table.rows[i];
+                table.deleteRow(i);
+                table.insertRow(i - 1).outerHTML = row.outerHTML;
+                recalculateIndex();
+            }
+        }
+
+        function moveRowDown(r){
+            let i = r.parentNode.parentNode.rowIndex;
+            let table = document.getElementById("playlist_table");
+            if(i < table.rows.length - 1){
+                let row = table.rows[i];
+                table.deleteRow(i);
+                table.insertRow(i + 1).outerHTML = row.outerHTML;
+                recalculateIndex();
+            }
+        }
+
         recalculateIndex = function(){
             let table = document.getElementById("playlist_table");
             let rows = table.rows;
