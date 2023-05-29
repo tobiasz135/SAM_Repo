@@ -150,10 +150,16 @@ app.get('/', (req, res) => {
     if(videoQuery){
         outputString += ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery} ${videoQuery ? "" : "hidden"}></video> </br> `
     }
+    let playVideo = ` <button type="button" id="videoPlay" onclick="playVideo()"> Play Video </button> 
+                    <button type="button" id="videoPause">  Pause Video </button> </br>`;
+    outputString += playVideo;
     if(audioQuery){
-        outputString += ` <audio id="audioPlayer" controls src=${audioQuery} ${audioQuery ? "" : "hidden"}></audio> </br> `
+        outputString += ` <audio id="audioPlayer" controls src=${audioQuery} ${audioQuery ? "" : "hidden"}></audio> `
     }
-    outputString += ` ${videoAddButton} ${audioAddButton}`
+    let playAudio = ` <button type="button" id="audioPlay" onclick="playAudio()"> Play Audio </button>
+                    <button type="button" id="audioPause"> Pause Audio </button> </br>`;
+    outputString += ` ${playAudio} ${videoAddButton}  ${audioAddButton}`
+
 
     if(imgQuery){
         outputString += imgString + imageAddButton;
