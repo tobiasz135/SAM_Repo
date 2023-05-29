@@ -175,18 +175,21 @@ app.get('/', (req, res) => {
     let imgString = ` <img id="posterImage" src="${imgQuery}" /> </br> `;
     
     let outputString = "";
-    if(videoQuery){
-        outputString += ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery} ${videoQuery ? "" : "hidden"}></video> </br> `
-    }
     let playVideo = ` <button type="button" id="videoPlay" onclick="playVideo()"> Play Video </button> 
                     <button type="button" id="videoPause" onclick="pauseVideo()">  Pause Video </button> </br>`;
-    outputString += playVideo;
-    if(audioQuery){
-        outputString += ` <audio id="audioPlayer" controls src=${audioQuery} ${audioQuery ? "" : "hidden"}></audio> `
-    }
     let playAudio = ` <button type="button" id="audioPlay" onclick="playAudio()"> Play Audio </button>
                     <button type="button" id="audioPause" onclick="pauseAudio()"> Pause Audio </button> </br>`;
-    outputString += ` ${playAudio} ${videoAddButton}  ${audioAddButton}`
+    if(videoQuery){
+        outputString += ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery} ${videoQuery ? "" : "hidden"}></video> </br> `
+        outputString += playVideo;
+    }
+    
+    if(audioQuery){
+        outputString += ` <audio id="audioPlayer" controls src=${audioQuery} ${audioQuery ? "" : "hidden"}></audio> </br>`
+        outputString += playAudio;
+    }
+    
+    outputString += ` ${videoAddButton}  ${audioAddButton}`
 
 
     if(imgQuery){
