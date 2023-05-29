@@ -121,6 +121,34 @@ app.get('/', (req, res) => {
             columnIndex++;
         }
 
+        function playVideo(){
+            let videoPlayer = document.getElementById("videoPlayer");
+            if(videoPlayer){
+                videoPlayer.play();
+            }
+        }
+
+        function pauseVideo(){
+            let videoPlayer = document.getElementById("videoPlayer");
+            if(videoPlayer){
+                videoPlayer.pause();
+            }
+        }
+
+        function playAudio(){
+            let audioPlayer = document.getElementById("audioPlayer");
+            if(audioPlayer){
+                audioPlayer.play();
+            }
+        }
+
+        function pauseAudio(){
+            let audioPlayer = document.getElementById("audioPlayer");
+            if(audioPlayer){
+                audioPlayer.pause();
+            }
+        }
+
 
         window.onload = function(){
             let videoCancelBtnVisible = document.getElementById("videoCancel").style.visibility;
@@ -151,13 +179,13 @@ app.get('/', (req, res) => {
         outputString += ` <video id="videoPlayer" width="320" height="240" controls src=${videoQuery} ${videoQuery ? "" : "hidden"}></video> </br> `
     }
     let playVideo = ` <button type="button" id="videoPlay" onclick="playVideo()"> Play Video </button> 
-                    <button type="button" id="videoPause">  Pause Video </button> </br>`;
+                    <button type="button" id="videoPause" onclick="pauseVideo()">  Pause Video </button> </br>`;
     outputString += playVideo;
     if(audioQuery){
         outputString += ` <audio id="audioPlayer" controls src=${audioQuery} ${audioQuery ? "" : "hidden"}></audio> `
     }
     let playAudio = ` <button type="button" id="audioPlay" onclick="playAudio()"> Play Audio </button>
-                    <button type="button" id="audioPause"> Pause Audio </button> </br>`;
+                    <button type="button" id="audioPause" onclick="pauseAudio()"> Pause Audio </button> </br>`;
     outputString += ` ${playAudio} ${videoAddButton}  ${audioAddButton}`
 
 
